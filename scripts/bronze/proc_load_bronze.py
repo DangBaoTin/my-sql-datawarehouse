@@ -109,7 +109,6 @@ def insert_erp_cust_az12():
     with open(file_path, mode="r", encoding="utf-8") as file:
         reader = csv.DictReader(file)
         for row in reader:
-
             data = {
                 "cid": row["CID"].strip(),
                 "bdate": row["BDATE"].strip(),
@@ -130,7 +129,6 @@ def insert_erp_loc_a101():
     with open(file_path, mode="r", encoding="utf-8") as file:
         reader = csv.DictReader(file)
         for row in reader:
-
             data = {
                 "cid": row["CID"].strip(),
                 "cntry": row["CNTRY"].strip(),
@@ -150,7 +148,6 @@ def insert_erp_px_cat_g1v2():
     with open(file_path, mode="r", encoding="utf-8") as file:
         reader = csv.DictReader(file)
         for row in reader:
-
             data = {
                 "id": row["ID"].strip(),
                 "cat": row["CAT"].strip(),
