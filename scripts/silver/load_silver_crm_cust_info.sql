@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION silver.load_silver()
+CREATE OR REPLACE FUNCTION silver.load_silver_crm_cust_info()
 RETURNS void
 LANGUAGE plpgsql
 AS $$
