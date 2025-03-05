@@ -27,14 +27,16 @@ Develop a modern data warehouse using PostgreSQL (using Supabase Database) to co
 The data architecture for this project follows Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
 ![Data Architecture](docs/data_architecture.png)
 
-1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
+1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV Files into PostgreSQL Supabase Database (Modified from the architecutre).
 2. **Silver Layer**: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
 3. **Gold Layer**: Houses business-ready data modeled into a star schema required for reporting and analytics.
 
-## Future Development
-Automated ETL scripts using Airflow.
+## Future Development  
+- Automating ETL processes with Apache Airflow.  
+- Integrating existing functions into Airflow DAGs for seamless workflow automation.  
+- Scheduling regular updates to ensure the dataset stays current.
 
-## Installing and activate virtual environment
+## Installing virtual environment
 - Init virt env:
 ```bash
 python3 -m venv venv
