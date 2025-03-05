@@ -1,9 +1,7 @@
 -- =============================================================================
 -- Create Dimension: gold.dim_customers
 -- =============================================================================
-DROP VIEW IF EXISTS gold.dim_customers;
-
-CREATE VIEW gold.dim_customers AS
+CREATE OR REPLACE VIEW gold.dim_customers AS
 SELECT
     ROW_NUMBER() OVER (ORDER BY cst_id) AS customer_key, -- Surrogate key
     ci.cst_id                          AS customer_id,
@@ -27,9 +25,7 @@ LEFT JOIN silver.erp_loc_a101 la
 -- =============================================================================
 -- Create Dimension: gold.dim_products
 -- =============================================================================
-DROP VIEW IF EXISTS gold.dim_products;
-
-CREATE VIEW gold.dim_products AS
+CREATE OR REPLACE VIEW gold.dim_products AS
 SELECT
     ROW_NUMBER() OVER (ORDER BY pn.prd_start_dt, pn.prd_key) AS product_key, -- Surrogate key
     pn.prd_id       AS product_id,
@@ -50,9 +46,7 @@ WHERE pn.prd_end_dt IS NULL; -- Filter out all historical data
 -- =============================================================================
 -- Create Fact Table: gold.fact_sales
 -- =============================================================================
-DROP VIEW IF EXISTS gold.fact_sales;
-
-CREATE VIEW gold.fact_sales AS
+CREATE OR REPLACE VIEW gold.fact_sales AS
 SELECT
     sd.sls_ord_num  AS order_number,
     pr.product_key  AS product_key,
